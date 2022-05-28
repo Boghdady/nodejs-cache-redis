@@ -1,0 +1,8 @@
+node_modules
+nohup.out
+.DS_Store
+
+client/node_modules
+
+config/
+

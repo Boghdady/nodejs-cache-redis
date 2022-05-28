@@ -1,0 +1,19 @@
+# Issues
+1.Caching code is not easily reusable anywhere elese in our codebase
+2.Cached values never expires
+3.Cache keys will not work when we introduce other collections or query oprsions
+
+# Solutions
+1.Hook in to mongoose query generation and execution process
+2.Add timeout to values assigned to redis. Also add ability to reset all values tied to some specific event
+3.Figure out a more rebust solution for generating cache keys
+
+
+# Three ways to trigger query in mongoose
+1. query.exec((err, result) => console.log(result));
+2. query.then(result => console.log(result));
+3. const result = await query;
+
+# Expire cache data in redis
+client.set("key","value", "EX", "Number of Seconds")
+client.set("color","red", "EX", "5")
